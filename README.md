@@ -73,3 +73,49 @@ npm run serve:web
 ## GitHub Repository Update Status
 
 All latest improvements are committed on the current branch and PR metadata has been updated each time so you can review and merge from GitHub.
+
+
+## Troubleshooting: `npm install` says `Could not read package.json`
+
+If your VPS clone only shows files like `README.md`, `index.html`, `admin.html`, `app.js`, `styles.css`, and **does not** show `package.json` or `backend/`, then you are on a reverted/static-only state of the repository.
+
+Run these commands to verify and fix:
+
+```bash
+cd /var/www/republicnodes-website
+ls -la
+# must include: package.json and backend/
+
+# confirm current commit + branch
+git branch -vv
+git log --oneline -n 5
+```
+
+If `package.json` or `backend/` are missing, switch to the branch/commit that contains full-stack files, or pull the correct branch from GitHub:
+
+```bash
+git fetch --all --prune
+# example: checkout your working branch with backend files
+git checkout <your-fullstack-branch>
+git pull --ff-only
+
+# verify again
+ls -la
+ls -la backend
+```
+
+Only after that run:
+
+```bash
+npm install
+npm run check:js
+npm run serve:api
+```
+
+If you intentionally want static-only mode (no Node/MySQL backend), use:
+
+```bash
+python3 -m http.server 4173
+```
+
+and skip `npm install`/API setup.
