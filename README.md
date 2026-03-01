@@ -130,3 +130,8 @@ The repository now includes backend-specific operational files so deployment is 
 - New npm scripts:
   - `npm run backend:check`
   - `npm run backend:setup:vps`
+
+
+## Merge conflict resolution note
+
+The current branch contains a single consolidated version of `README.md`, `admin.html`, `app.js`, `index.html`, and `styles.css` to avoid cross-branch merge conflicts in the open PR.

@@ -1,3 +1,4 @@
+const APP_VERSION = 'conflict-resolved-1';
 const API_BASE = localStorage.getItem('apiBase') || '';
 
 const api = {
