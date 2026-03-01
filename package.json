@@ -5,7 +5,9 @@
   "scripts": {
     "serve:web": "python3 -m http.server 4173",
     "serve:api": "node backend/server.js",
-    "check:js": "node --check app.js && node --check backend/server.js"
+    "check:js": "node --check app.js && node --check backend/server.js",
+    "backend:check": "node --check backend/server.js",
+    "backend:setup:vps": "bash backend/setup-vps.sh"
   },
   "dependencies": {
     "cors": "^2.8.5",

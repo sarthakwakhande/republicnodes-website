@@ -119,3 +119,14 @@ python3 -m http.server 4173
 ```
 
 and skip `npm install`/API setup.
+
+
+## Backend files added in repository
+
+The repository now includes backend-specific operational files so deployment is easier:
+
+- `backend/README.md` — backend setup and endpoint reference.
+- `backend/setup-vps.sh` — quick Ubuntu VPS bootstrap helper.
+- New npm scripts:
+  - `npm run backend:check`
+  - `npm run backend:setup:vps`
