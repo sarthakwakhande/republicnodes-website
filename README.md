@@ -69,3 +69,7 @@ npm run serve:web
 - Use real Razorpay/PayPal webhook verification
 - Move email and order events to background job queue
 - Add object storage for product images
+
+## GitHub Repository Update Status
+
+All latest improvements are committed on the current branch and PR metadata has been updated each time so you can review and merge from GitHub.

@@ -14,17 +14,32 @@
   </div>
 </header>
 
-<main class="container admin-layout">
-  <aside>
-    <button class="tab active" data-tab="products">Products</button>
-    <button class="tab" data-tab="orders">Orders & Tracking</button>
-    <button class="tab" data-tab="payment">Payment Settings</button>
-    <button class="tab" data-tab="smtp">SMTP Settings</button>
-    <button class="tab" data-tab="shipping">Shipping Rules</button>
-    <button class="tab" data-tab="analytics">Analytics</button>
-    <button class="tab" data-tab="security">Roles + 2FA</button>
-  </aside>
-  <section id="admin-panel-content"></section>
+<main class="container">
+  <section class="admin-hero">
+    <div>
+      <span class="eyebrow">Admin Control Center</span>
+      <h1>Manage orders, settings, and delivery updates in one place</h1>
+      <p>Update products, payment keys, SMTP mail, shipping rules, and tracking timelines from this panel.</p>
+    </div>
+    <div class="admin-hero-metrics">
+      <article><strong>Products</strong><span>Full add/edit/delete controls</span></article>
+      <article><strong>Payments</strong><span>Razorpay + PayPal editable</span></article>
+      <article><strong>Delivery</strong><span>Status + custom timeline updates</span></article>
+    </div>
+  </section>
+
+  <section class="admin-layout">
+    <aside>
+      <button class="tab active" data-tab="products">Products</button>
+      <button class="tab" data-tab="orders">Orders & Tracking</button>
+      <button class="tab" data-tab="payment">Payment Settings</button>
+      <button class="tab" data-tab="smtp">SMTP Settings</button>
+      <button class="tab" data-tab="shipping">Shipping Rules</button>
+      <button class="tab" data-tab="analytics">Analytics</button>
+      <button class="tab" data-tab="security">Roles + 2FA</button>
+    </aside>
+    <section id="admin-panel-content"></section>
+  </section>
 </main>
 
 <script src="app.js"></script>
