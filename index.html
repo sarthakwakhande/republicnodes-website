@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Republic Nodes Store | Handmade, Luxury, Food & Electronics</title>
+  <meta name="description" content="Shop premium handmade products, luxury crafts, gourmet food, and electronics directly from Republic Nodes." />
+  <meta name="keywords" content="handmade, luxury, food, electronics, ecommerce" />
+  <meta property="og:title" content="Republic Nodes Store" />
+  <meta property="og:description" content="Curated products crafted and sold directly by Republic Nodes." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-grid">
+      <a class="logo" href="#">Republic Nodes</a>
+      <form id="search-form" class="search-wrap" autocomplete="off">
+        <input id="search-input" type="search" placeholder="Search products..." aria-label="Search products" />
+        <ul id="autocomplete" class="autocomplete"></ul>
+      </form>
+      <nav class="header-actions">
+        <button id="open-auth">Account</button>
+        <button id="open-wishlist">Wishlist (<span id="wishlist-count">0</span>)</button>
+        <button id="open-cart">Cart (<span id="cart-count">0</span>)</button>
+      </nav>
+    </div>
+    <div class="category-nav container">
+      <button class="category-btn active" data-category="all">All</button>
+      <button class="category-btn" data-category="handmade">Handmade</button>
+      <button class="category-btn" data-category="luxury">Luxury</button>
+      <button class="category-btn" data-category="food">Food</button>
+      <button class="category-btn" data-category="electronics">Electronics</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <div>
+        <h1>Crafted by Us. Delivered to You.</h1>
+        <p>Discover artisan pieces, luxury handmade collections, gourmet selections, and reliable electronics — all produced and sold by Republic Nodes only.</p>
+        <a class="btn" href="#catalog">Shop Now</a>
+      </div>
+      <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=900&q=80" alt="Luxury handmade products" />
+    </section>
+
+    <section class="promo container">
+      <article>🔥 Flash Sale: up to 20% off on Electronics</article>
+      <article>🎁 Use code <strong>WELCOME10</strong> for first order discount</article>
+      <article>🚚 Free delivery above ₹1500</article>
+    </section>
+
+    <section class="container" id="featured">
+      <h2>Featured Products</h2>
+      <div id="featured-grid" class="product-grid"></div>
+    </section>
+
+    <section class="container" id="catalog">
+      <h2>Product Catalog</h2>
+      <div class="toolbar">
+        <label>Price up to: <input type="range" id="price-filter" min="100" max="10000" value="10000" /><span id="price-value">₹10000</span></label>
+        <label>Sort by:
+          <select id="sort-select">
+            <option value="newest">Newest</option>
+            <option value="popularity">Popularity</option>
+            <option value="price-low">Price: Low to High</option>
+            <option value="price-high">Price: High to Low</option>
+          </select>
+        </label>
+      </div>
+      <div id="product-grid" class="product-grid"></div>
+    </section>
+
+    <section class="container testimonials">
+      <h2>Testimonials</h2>
+      <div class="testimonial-grid">
+        <blockquote>“Exceptional quality and fast delivery. Premium experience!” — Priya R.</blockquote>
+        <blockquote>“Loved the handmade decor and gourmet snacks combo.” — Karan M.</blockquote>
+        <blockquote>“Electronics came well packed and exactly as described.” — Aditi S.</blockquote>
+      </div>
+    </section>
+
+    <section class="container blog">
+      <h2>Stories & Blog</h2>
+      <article><h3>How our handmade line is crafted</h3><p>Behind the scenes of our workshop and quality process.</p></article>
+      <article><h3>Luxury collection curation standards</h3><p>How we choose and finish every premium item in-house.</p></article>
+    </section>
+
+    <section class="container support-pages">
+      <h2>Support & Policies</h2>
+      <div class="support-links">
+        <article><h3>Customer Support</h3><p>Email: support@republicnodes.com | Phone: +91-99999-99999</p></article>
+        <article><h3>FAQs</h3><p>Shipping, returns, refunds, payments, stock availability, and order tracking.</p></article>
+        <article><h3>Terms & Conditions</h3><p>Orders are subject to product availability and payment verification.</p></article>
+        <article><h3>Privacy Policy</h3><p>We securely process your data and never list third-party sellers.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 Republic Nodes. All products are owned and sold by Republic Nodes.</p>
+      <div class="socials">
+        <a href="#">Instagram</a>
+        <a href="#">YouTube</a>
+        <a href="#">Facebook</a>
+      </div>
+      <a href="admin.html">Open Admin Panel</a>
+    </div>
+  </footer>
+
+  <dialog id="product-modal"></dialog>
+  <dialog id="cart-modal"></dialog>
+  <dialog id="wishlist-modal"></dialog>
+  <dialog id="auth-modal"></dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
