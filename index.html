@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Republic Nodes Commerce</title>
+  <meta name="description" content="Republic Nodes first-party ecommerce for handmade, luxury, food and electronics." />
+  <meta property="og:title" content="Republic Nodes Commerce" />
+  <meta property="og:description" content="Premium products sold directly by Republic Nodes." />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<header class="site-header glass">
+  <div class="container header-grid">
+    <a class="logo" href="#">Republic Nodes</a>
+    <form class="search-wrap" autocomplete="off">
+      <input id="search-input" type="search" placeholder="Search products quickly..." aria-label="Search" />
+      <ul id="autocomplete" class="autocomplete"></ul>
+    </form>
+    <nav class="header-actions">
+      <button id="open-auth">Account</button>
+      <button id="open-wishlist">Wishlist <span id="wishlist-count">0</span></button>
+      <button id="open-cart">Cart <span id="cart-count">0</span></button>
+    </nav>
+  </div>
+  <div class="container category-nav">
+    <button class="category-btn active" data-category="all">All</button>
+    <button class="category-btn" data-category="handmade">Handmade</button>
+    <button class="category-btn" data-category="luxury">Luxury</button>
+    <button class="category-btn" data-category="food">Food</button>
+    <button class="category-btn" data-category="electronics">Electronics</button>
+  </div>
+</header>
+
+<main>
+  <section class="hero container">
+    <div class="hero-copy">
+      <span class="eyebrow">Republic Nodes Premium Store</span>
+      <h1>Modern Luxury Ecommerce Experience</h1>
+      <p>Only Republic Nodes products. Fast search, secure checkout, and delivery updates from packed to delivered.</p>
+      <div class="hero-actions">
+        <a href="#catalog" class="btn">Shop Now</a>
+        <a href="admin.html" class="btn secondary">Admin Panel</a>
+      </div>
+      <div class="hero-metrics">
+        <article><strong>4.9/5</strong><span>Customer Rating</span></article>
+        <article><strong>24h</strong><span>Fast Dispatch</span></article>
+        <article><strong>100%</strong><span>First-Party Products</span></article>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <svg viewBox="0 0 400 320" class="hero-svg" role="img" aria-label="Animated product flow">
+        <defs>
+          <linearGradient id="g" x1="0" x2="1">
+            <stop offset="0%" stop-color="#6a5cff"/>
+            <stop offset="100%" stop-color="#00c2ff"/>
+          </linearGradient>
+        </defs>
+        <rect x="20" y="40" width="360" height="240" rx="24" fill="url(#g)" opacity=".16"/>
+        <g class="float f1"><circle cx="90" cy="110" r="34" fill="#6a5cff" opacity=".85"/></g>
+        <g class="float f2"><rect x="170" y="92" width="140" height="72" rx="14" fill="#00c2ff" opacity=".85"/></g>
+        <g class="float f3"><circle cx="275" cy="210" r="24" fill="#ff8a00" opacity=".9"/></g>
+        <path d="M60 235 C160 175, 220 270, 330 210" stroke="#171721" stroke-width="7" fill="none" stroke-linecap="round"/>
+      </svg>
+    </div>
+  </section>
+
+  <section class="container promo">
+    <article>🔥 Flash Sale today: up to 25% OFF electronics</article>
+    <article>🎁 WELCOME10 for first purchase</article>
+    <article>🚚 Free shipping above ₹1500</article>
+  </section>
+
+  <section class="container" id="featured">
+    <div class="section-head">
+      <h2>Featured products</h2>
+      <p>Curated by Republic Nodes design + quality team.</p>
+    </div>
+    <div id="featured-grid" class="product-grid"></div>
+  </section>
+
+  <section id="catalog" class="container">
+    <div class="section-head">
+      <h2>Catalog</h2>
+      <p>Filter by price, category, and trend score.</p>
+    </div>
+    <div class="toolbar">
+      <label>Price max <input id="price-filter" type="range" min="100" max="10000" value="10000" /><span id="price-value">₹10000</span></label>
+      <label>Sort
+        <select id="sort-select">
+          <option value="newest">Newest</option>
+          <option value="popularity">Popularity</option>
+          <option value="price-low">Price low-high</option>
+          <option value="price-high">Price high-low</option>
+        </select>
+      </label>
+    </div>
+    <div id="product-grid" class="product-grid"></div>
+  </section>
+
+  <section class="container testimonials">
+    <div class="section-head">
+      <h2>Testimonials</h2>
+      <p>Real buyers, real feedback.</p>
+    </div>
+    <div class="testimonial-grid">
+      <blockquote>“Packaging and quality are premium.” — Rhea</blockquote>
+      <blockquote>“Delivery updates came on time: packed, shipped, out for delivery.” — Sameer</blockquote>
+      <blockquote>“Great experience on mobile and tablet both.” — Aditya</blockquote>
+    </div>
+  </section>
+
+  <section class="container support-grid">
+    <article><h3>Customer Support</h3><p>support@republicnodes.com | +91-99999-99999</p></article>
+    <article><h3>FAQs</h3><p>Shipping, payment, refunds, warranty and tracking FAQs available in account panel.</p></article>
+    <article><h3>Terms & Privacy</h3><p>Only first-party Republic Nodes products are sold. No third-party sellers.</p></article>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container row">
+    <p>© 2026 Republic Nodes. No third-party sellers.</p>
+    <a href="admin.html">Go to Admin</a>
+  </div>
+</footer>
+
+<dialog id="product-modal"></dialog>
+<dialog id="cart-modal"></dialog>
+<dialog id="wishlist-modal"></dialog>
+<dialog id="auth-modal"></dialog>
+<script src="app.js"></script>
+</body>
+</html>

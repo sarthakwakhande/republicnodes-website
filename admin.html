@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Republic Nodes Admin</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="admin-body">
+<header class="site-header glass">
+  <div class="container header-grid">
+    <a class="logo" href="index.html">Republic Nodes Admin</a>
+    <p>Product, payment, SMTP, shipping tracking control</p>
+  </div>
+</header>
+
+<main class="container admin-layout">
+  <aside>
+    <button class="tab active" data-tab="products">Products</button>
+    <button class="tab" data-tab="orders">Orders & Tracking</button>
+    <button class="tab" data-tab="payment">Payment Settings</button>
+    <button class="tab" data-tab="smtp">SMTP Settings</button>
+    <button class="tab" data-tab="shipping">Shipping Rules</button>
+    <button class="tab" data-tab="analytics">Analytics</button>
+    <button class="tab" data-tab="security">Roles + 2FA</button>
+  </aside>
+  <section id="admin-panel-content"></section>
+</main>
+
+<script src="app.js"></script>
+</body>
+</html>
