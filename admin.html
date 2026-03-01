@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Republic Nodes Admin Panel</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="admin-body">
+  <header class="site-header">
+    <div class="container header-grid">
+      <a class="logo" href="index.html">Republic Nodes Admin</a>
+      <p>Owner / Manager / Staff roles + 2FA demo</p>
+    </div>
+  </header>
+
+  <main class="container admin-layout">
+    <aside>
+      <button class="tab active" data-tab="products">Products</button>
+      <button class="tab" data-tab="stock">Stock</button>
+      <button class="tab" data-tab="categories">Categories</button>
+      <button class="tab" data-tab="pricing">Pricing & Discounts</button>
+      <button class="tab" data-tab="orders">Orders</button>
+      <button class="tab" data-tab="customers">Customers</button>
+      <button class="tab" data-tab="emails">Email Control</button>
+      <button class="tab" data-tab="payments">Payments & Tax</button>
+      <button class="tab" data-tab="shipping">Shipping</button>
+      <button class="tab" data-tab="content">Content</button>
+      <button class="tab" data-tab="reviews">Reviews</button>
+      <button class="tab" data-tab="analytics">Analytics</button>
+      <button class="tab" data-tab="security">Security & Logs</button>
+    </aside>
+
+    <section id="admin-panel-content"></section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
