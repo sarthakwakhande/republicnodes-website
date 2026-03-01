@@ -1,25 +1,26 @@
 # Republic Nodes Ecommerce (Storefront + Admin + MySQL API)
 
-This version is rebuilt around your requirements:
-- MySQL database design
-- Ubuntu VPS 24.04 deployment guidance
-- responsive UI for PC / tablet / mobile
-- animated SVG hero section
-- admin-editable Razorpay/PayPal settings
-- admin-editable SMTP mail settings
-- product add/delete/update controls
-- delivery updates (packed/shipped/out for delivery/delivered) with custom message push
+This implementation is rebuilt as a cleaner production foundation for your requirements:
 
-## 1) Tech Architecture
+- MySQL-backed architecture
+- Ubuntu VPS 24.04 deployment checklist
+- Responsive UI (PC, tablet, mobile)
+- SVG animation hero and modern storefront UI
+- Admin-editable Razorpay/PayPal settings
+- Admin-editable SMTP settings
+- Product management + order tracking updates
+- Delivery timeline messaging (packed → shipped → out for delivery → delivered)
+
+## Architecture
 
 - Frontend: `index.html`, `admin.html`, `styles.css`, `app.js`
 - Backend API: `backend/server.js` (Express + MySQL + Nodemailer)
 - DB schema: `backend/schema.sql`
-- Environment template: `backend/.env.example`
+- Env template: `backend/.env.example`
 
-Frontend works standalone via localStorage and also attempts API sync to backend endpoints.
+The frontend works in local mode (localStorage) and also syncs to API when reachable.
 
-## 2) MySQL Setup
+## MySQL Setup
 
 ```bash
 mysql -u root -p
@@ -27,25 +28,30 @@ CREATE DATABASE republicnodes_store;
 CREATE USER 'republicnodes'@'%' IDENTIFIED BY 'strong_password_here';
 GRANT ALL PRIVILEGES ON republicnodes_store.* TO 'republicnodes'@'%';
 FLUSH PRIVILEGES;
-```
-
-Then run:
-
-```bash
 mysql -u republicnodes -p republicnodes_store < backend/schema.sql
 ```
 
-## 3) Ubuntu VPS 24.04 Optimization Notes
+## API Endpoints
 
-- Use `ufw` firewall: allow only `22`, `80`, `443`, and API port if needed privately.
-- Use `nginx` reverse proxy with gzip/brotli and HTTP/2.
-- Run Node API under `pm2`.
-- Keep MySQL local/private network only.
-- Enable swap for low RAM VPS, tune MySQL buffers based on RAM.
-- Use Cloudflare / CDN for static caching.
-- Configure TLS (Let's Encrypt).
+- `GET /api/health`
+- `GET /api/settings/:type` where `type` is `payment|smtp|shipping`
+- `POST /api/settings/:type`
+- `GET /api/orders`
+- `POST /api/orders`
+- `POST /api/orders/:id/status`
+- `POST /api/orders/:id/tracking`
+- `POST /api/orders/:id/message` (also sends delivery email if SMTP env is present)
 
-## 4) Run
+## Ubuntu VPS 24.04 Optimization Notes
+
+- Use `ufw` firewall (`22`, `80`, `443` only; keep DB private)
+- Use Nginx reverse proxy with HTTP/2 + gzip/brotli
+- Run API via `pm2`
+- Enable TLS with Let’s Encrypt
+- Keep MySQL private and tune buffers per server RAM
+- Use CDN/Cloudflare for static content
+
+## Run
 
 ```bash
 npm install
@@ -56,30 +62,10 @@ npm run serve:web
 # open http://localhost:4173
 ```
 
-## 5) Feature Map
+## Notes before production launch
 
-### Storefront
-- Hero + promotions + featured products + testimonials
-- Search + autocomplete
-- Category filtering + price + sorting
-- Product detail modal with similar products
-- Cart, quantity update, shipping calculation, ETA
-- Razorpay + PayPal options at checkout
-- Signup/login, wishlist, order tracking timeline
-
-### Admin
-- Add/delete products
-- Change order status + tracking + push custom delivery update message
-- Payment settings form (Razorpay/PayPal credentials)
-- SMTP settings form (editable)
-- Shipping rules form (charges, free-above, ETA)
-- Analytics and security sections
-
-## 6) Important
-
-This is a production-ready foundation, but before live launch you should still add:
-- secure password hashing + JWT/session auth
-- CSRF/rate limits/validation middleware
-- real Razorpay/PayPal SDK verification & webhooks
-- queue worker for email sending
-- image upload storage (S3/object storage)
+- Add proper auth (hashed passwords + JWT/session)
+- Add validation/rate limiting and audit logging
+- Use real Razorpay/PayPal webhook verification
+- Move email and order events to background job queue
+- Add object storage for product images
